@@ -49,10 +49,10 @@ export default function Home() {
         </ul>
       </motion.section>
 
-      <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
+      {/* <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900">What Our Clients Say</h2>
         <div className="text-gray-600 italic">“Coming soon...”</div>
-      </motion.section>
+      </motion.section> */}
 
       <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900">Additional Quotes</h2>

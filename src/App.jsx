@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import PracticeAreas from './pages/PracticeAreas';
 import Contact from './pages/Contact';
+import logo from './assets/logo.png';
+import { Facebook, Twitter, Instagram } from 'lucide-react';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +32,7 @@ function Navbar() {
   return (
     <nav className="bg-white shadow-md py-4 px-6 flex justify-between items-center relative z-50">
       <NavLink to="/" className="text-xl font-bold text-blue-900 font-serif">
-        Roy & Sal
+        <img src={logo} alt="Roy Sal Legal Logo" className="h-12 w-auto" />
       </NavLink>
 
       {/* Hamburger Button - visible on mobile */}
@@ -79,9 +81,15 @@ function Footer() {
         <div>
           <h4 className="font-semibold mb-2 text-blue-900">Follow Us</h4>
           <div className="flex justify-center md:justify-start gap-4">
-            <a href="#" className="hover:text-blue-600">LinkedIn</a>
-            <a href="#" className="hover:text-blue-600">Twitter</a>
-            <a href="#" className="hover:text-blue-600">Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+              <Facebook size={20} />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+              <Twitter size={20} />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+              <Instagram size={20} />
+            </a>
           </div>
         </div>
       </div>
