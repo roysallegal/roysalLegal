@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import bannerImg from '../assets/img/nasser-eledroos-20fmGtxKs_I-unsplash.jpg';
 
 export default function Home() {
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function Home() {
       animate="animate"
       exit="exit"
     >
-      <motion.section {...fadeInUp} className="relative bg-cover bg-center h-96 flex items-center justify-center text-white text-center" style={{ backgroundImage: `url("/src/assets/img/nasser-eledroos-20fmGtxKs_I-unsplash.jpg")` }}>
+      <motion.section {...fadeInUp} className="relative bg-cover bg-center h-96 flex items-center justify-center text-white text-center" style={{ backgroundImage: `url(${bannerImg})` }}>
         <div className="bg-black bg-opacity-50 p-6 rounded-lg max-w-3xl">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">Protecting Innovation, Resolving Disputes – Expert Legal Services in IPR & Commercial Law</h1>
           <p className="italic text-sm">“Your ideas. Our Protection.”</p>
