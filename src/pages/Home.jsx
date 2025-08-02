@@ -1,6 +1,18 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import bannerImg from '../assets/img/nasser-eledroos-20fmGtxKs_I-unsplash.jpg';
+import {
+  Award,
+  Copyright,
+  PenTool,
+  Shield,
+  Radio,
+  ClipboardList,
+  FlaskConical,
+  Gavel,
+  Banknote,
+  BarChart3
+} from 'lucide-react';
 
 export default function Home() {
   useEffect(() => {
@@ -28,25 +40,63 @@ export default function Home() {
       </motion.section>
 
       <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Brief Overview</h2>
-        <p className="text-gray-700">
+        <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Brief Overview</h2>
+        <p className="text-gray-700 dark:text-gray-300 text-justify">
           At Roy & Sal Associates, we provide sophisticated and strategic legal counsel with a core focus on intellectual property, while also delivering excellence across a wider spectrum of commercial and corporate law. Our team brings a depth of expertise in protecting and enforcing intellectual assets, spanning patents, trademarks, copyrights, design and trade secrets, paired with robust capabilities in contract law, technology law, regulatory advisory and commercial litigation. Be it advising startups, creative professionals, or established enterprises, we offer tailored, business-aligned legal solutions marked by precision, discretion, and a commitment to achieving measurable results. Our approach is proactive, responsive, and always aligned with our clients’ strategic goals.
         </p>
       </motion.section>
 
       <motion.section {...fadeInUp} className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Practice Areas Preview</h2>
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center text-gray-700">
-          <li className="bg-gray-100 rounded-lg p-4">Patents</li>
-          <li className="bg-gray-100 rounded-lg p-4">Trademarks</li>
-          <li className="bg-gray-100 rounded-lg p-4">Copyright</li>
-          <li className="bg-gray-100 rounded-lg p-4">Design</li>
-          <li className="bg-gray-100 rounded-lg p-4">Other IP</li>
-          <li className="bg-gray-100 rounded-lg p-4">Telecom & Broadcasting</li>
-          <li className="bg-gray-100 rounded-lg p-4">Compliance & Regulatory</li>
-          <li className="bg-gray-100 rounded-lg p-4">Drug Regulatory</li>
-          <li className="bg-gray-100 rounded-lg p-4">Arbitration</li>
-          <li className="bg-gray-100 rounded-lg p-4">DRT Competition</li>
+        <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Practice Areas Preview</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-700 dark:text-gray-300">
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Award className="text-blue-700 dark:text-blue-300" size={20} />
+            Patents
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Copyright className="text-blue-700 dark:text-blue-300" size={20} />
+            Trademarks
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Copyright className="text-blue-700 dark:text-blue-300" size={20} />
+            Copyright
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <PenTool className="text-blue-700 dark:text-blue-300" size={20} />
+            Design
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Shield className="text-blue-700 dark:text-blue-300" size={20} />
+            Other IP
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Radio className="text-blue-700 dark:text-blue-300" size={20} />
+            Telecom & Broadcasting
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <ClipboardList className="text-blue-700 dark:text-blue-300" size={20} />
+            Compliance & Regulatory
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <FlaskConical className="text-blue-700 dark:text-blue-300" size={20} />
+            Drug Regulatory
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Gavel className="text-blue-700 dark:text-blue-300" size={20} />
+            Arbitration
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Banknote className="text-blue-700 dark:text-blue-300" size={20} />
+            DRT / Competition
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <BarChart3 className="text-blue-700 dark:text-blue-300" size={20} />
+            Competition Law
+          </li>
+          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
+            <Banknote className="text-blue-700 dark:text-blue-300" size={20} />
+            DRT Matters
+          </li>
         </ul>
       </motion.section>
 
@@ -56,7 +106,7 @@ export default function Home() {
       </motion.section> */}
 
       <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Additional Quotes</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Additional Quotes</h2>
         <ul className="space-y-2 text-sm italic text-gray-600">
           <li>“Protecting Innovation. Empowering Growth.”</li>
           <li>“Excellence in every brief. Strategy in every step. Judgment in every matter.”</li>
