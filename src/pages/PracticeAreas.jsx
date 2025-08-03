@@ -100,7 +100,7 @@ export default function PracticeAreas() {
     >
       <h1 className="text-3xl font-semibold text-blue-900 dark:text-white mb-4">Practice Areas</h1>
       <p className="text-gray-700 dark:text-gray-300 mb-8">
-        At Roy & Sal Associates, we are trusted counsel to innovators, market leaders, and institutions navigating high-stakes legal challenges...
+        At Roy & Sal Associates, we are trusted counsel to innovators, market leaders, and institutions navigating high-stakes legal challenges. Our practice is grounded in technical mastery, strategic foresight, and an unwavering commitment to professional excellence. We offer nuanced, solutions-oriented advice across an array of legal domains.
       </p>
 
       {areas.map((area, index) => (
