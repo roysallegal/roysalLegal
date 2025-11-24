@@ -5,8 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import PracticeAreas from './pages/PracticeAreas';
 import Contact from './pages/Contact';
-import logo from './assets/logo.png';
-import { Facebook, Twitter, Instagram } from 'lucide-react';
+import logo from './assets/logo-roysal.png';
+import { Facebook, Twitter, Instagram, Mail, Phone as PhoneIcon, MapPin } from 'lucide-react';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,7 +76,7 @@ function Navbar() {
           Practice Areas
         </NavLink>
         <NavLink to="/contact" className={linkClasses} onClick={() => setMenuOpen(false)}>
-          Contact
+          Contact Us
         </NavLink>
       </div>
     </nav>
@@ -87,41 +87,67 @@ function Footer() {
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm py-8 px-4 transition-colors duration-300">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-        <div>
+        {/* Contact Info spans 2 columns on md+ */}
+        <div className="md:col-span-2">
           <h4 className="font-semibold mb-2 text-blue-900 dark:text-white">Contact Info</h4>
-          <p>Email: contactroyandsal@gmail.com</p>
-          <p>Phone: +91 91066 50461</p>
-          <p>Address: E-36, Park Near Hush Puppies, Lajpat Nagar-2, New Delhi - 110024</p>
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-2 group">
+            <Mail size={18} className="text-blue-700 dark:text-blue-300 group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
+            <span>contactroyandsal@gmail.com</span>
+          </div>
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-2 group">
+            <PhoneIcon size={18} className="text-blue-700 dark:text-blue-300 group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
+            <span>+91 91066 50461</span>
+          </div>
+          <div className="flex items-center justify-center md:justify-start gap-2 group">
+            <a
+              href="https://maps.app.goo.gl/MXqEcwMqdynBkW1e6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-blue-600 group"
+            >
+              <MapPin size={18} className="text-blue-700 dark:text-blue-300 group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
+              <span>E-36, Park Near Hush Puppies, Lajpat Nagar-2, New Delhi</span>
+            </a>
+          </div>
         </div>
+
+        {/* Quick Links */}
         <div>
           <h4 className="font-semibold mb-2 text-blue-900 dark:text-white">Quick Links</h4>
           <ul className="space-y-1">
             <li><NavLink to="/" className="hover:underline">Home</NavLink></li>
-            <li><NavLink to="/about" className="hover:underline">About</NavLink></li>
+            <li><NavLink to="/about" className="hover:underline">About Us</NavLink></li>
             <li><NavLink to="/practice-areas" className="hover:underline">Practice Areas</NavLink></li>
-            <li><NavLink to="/contact" className="hover:underline">Contact</NavLink></li>
+            <li><NavLink to="/contact" className="hover:underline">Contact Us</NavLink></li>
           </ul>
         </div>
-        <div>
-          <h4 className="font-semibold mb-2 text-blue-900 dark:text-white">Disclaimer</h4>
-          <p>This website is for informational purposes only and does not constitute legal advice.</p>
-        </div>
+
+        {/* Follow Us */}
         <div>
           <h4 className="font-semibold mb-2 text-blue-900 dark:text-white">Follow Us</h4>
           <div className="flex justify-center md:justify-start gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-              <Facebook size={20} />
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 group">
+              <Facebook size={20} className="group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-              <Twitter size={20} />
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 group">
+              <Twitter size={20} className="group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-              <Instagram size={20} />
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 group">
+              <Instagram size={20} className="group-hover:scale-110 group-hover:text-blue-500 transition-all duration-200" />
             </a>
           </div>
         </div>
       </div>
-      <div className="text-center mt-6">&copy; {new Date().getFullYear()} Roy & Sal Associates. All rights reserved.</div>
+
+      {/* Disclaimer Full Row */}
+      <div className="max-w-6xl mx-auto mt-6 text-center text-gray-600 dark:text-gray-400 px-4">
+        <p>Disclaimer: This website is for informational purposes only and does not constitute legal advice.</p>
+      </div>
+
+      {/* Rights Reserved */}
+      <div className="text-center mt-4 text-gray-600 dark:text-gray-400">
+        &copy; {new Date().getFullYear()} Roy & Sal Associates. All rights reserved.
+      </div>
     </footer>
   );
 }

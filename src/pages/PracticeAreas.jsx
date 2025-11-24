@@ -13,6 +13,7 @@ import {
   Banknote,
   BarChart3,
 } from 'lucide-react';
+import practiceBg from '../assets/img/practice-bg.jpg';
 
 export default function PracticeAreas() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -92,51 +93,63 @@ export default function PracticeAreas() {
 
   return (
     <motion.div
-      className="max-w-4xl mx-auto px-6 py-12 space-y-8 bg-white dark:bg-[#121212] transition-colors duration-300"
+      className="bg-white dark:bg-[#121212] transition-colors duration-300"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6 }}
     >
-      <h1 className="text-3xl font-semibold text-blue-900 dark:text-white mb-4">Practice Areas</h1>
-      <p className="text-gray-700 dark:text-gray-300 mb-8">
-        At Roy & Sal Associates, we are trusted counsel to innovators, market leaders, and institutions navigating high-stakes legal challenges. Our practice is grounded in technical mastery, strategic foresight, and an unwavering commitment to professional excellence. We offer nuanced, solutions-oriented advice across an array of legal domains.
-      </p>
+      {/* Banner Section */}
+      <div
+        className="w-full h-64 bg-center bg-cover flex items-center justify-center"
+        style={{ backgroundImage: `url(${practiceBg})` }}
+      >
+        <h1 className="text-3xl md:text-4xl font-semibold text-white bg-black bg-opacity-50 px-6 py-2 rounded">
+          Practice Areas
+        </h1>
+      </div>
 
-      {areas.map((area, index) => (
-        <motion.section key={index} className="border-b pb-4">
-          <button
-            onClick={() => toggleSection(index)}
-            className="w-full flex justify-between items-center text-left py-3 focus:outline-none"
-          >
-            <div className="flex items-center gap-2">
-              {area.icon}
-              <span className="text-xl font-bold text-blue-800 dark:text-white">{area.title}</span>
-            </div>
-            <motion.span
-              animate={{ rotate: openIndex === index ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
+      {/* Content Section */}
+      <div className="max-w-4xl mx-auto px-6 py-12 space-y-8">
+        <p className="text-gray-700 dark:text-gray-300 text-justify">
+          At Roy & Sal Associates, we are trusted counsel to innovators, market leaders, and institutions navigating high-stakes legal challenges. Our practice is grounded in technical mastery, strategic foresight, and an unwavering commitment to professional excellence. We offer nuanced, solutions-oriented advice across an array of legal domains.
+        </p>
+
+        {areas.map((area, index) => (
+          <motion.section key={index} className="border-b pb-4">
+            <button
+              onClick={() => toggleSection(index)}
+              className="w-full flex justify-between items-center text-left py-3 focus:outline-none"
             >
-              <ChevronDown className="text-blue-700 dark:text-white" />
-            </motion.span>
-          </button>
-
-          <AnimatePresence initial={false}>
-            {openIndex === index && (
-              <motion.p
-                key="content"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.4 }}
-                className="text-gray-700 dark:text-gray-300 text-sm overflow-hidden pl-7 pr-1"
+              <div className="flex items-center gap-2">
+                {area.icon}
+                <span className="text-xl font-bold text-blue-800 dark:text-white">{area.title}</span>
+              </div>
+              <motion.span
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
               >
-                {area.content}
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </motion.section>
-      ))}
+                <ChevronDown className="text-blue-700 dark:text-white" />
+              </motion.span>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {openIndex === index && (
+                <motion.p
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-gray-700 dark:text-gray-300 text-sm overflow-hidden pl-7 pr-1"
+                >
+                  {area.content}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.section>
+        ))}
+      </div>
     </motion.div>
   );
 }
