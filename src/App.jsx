@@ -154,7 +154,7 @@ function Footer() {
 
 export default function App() {
   return (
-    <Router  basename="/roysalLegal">
+    <Router>
       <div className="min-h-screen flex flex-col bg-white dark:bg-[#121212] text-gray-800 dark:text-gray-100 transition-colors duration-300">
         <Navbar />
         <main className="flex-grow">
