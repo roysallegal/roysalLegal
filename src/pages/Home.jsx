@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import bannerImg from '../assets/img/nasser-eledroos-20fmGtxKs_I-unsplash.jpg';
+import bannerImg from '../assets/img/ahmad-matar-t99iqJzb1Ns-unsplash.jpg';
 import {
   Award,
   Copyright,
@@ -105,7 +105,7 @@ export default function Home() {
         <div className="text-gray-600 italic">“Coming soon...”</div>
       </motion.section> */}
 
-      <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
+      {/* <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Additional Quotes</h2>
         <ul className="space-y-2 text-sm italic text-gray-600">
           <li>“Protecting Innovation. Empowering Growth.”</li>
@@ -115,7 +115,7 @@ export default function Home() {
           <li>“Where strategy meets structure. Where counsel becomes certainty.”</li>
           <li>“Built on principle. Defined by clarity. Trusted in complexity.”</li>
         </ul>
-      </motion.section>
+      </motion.section> */}
     </motion.div>
   );
 }
