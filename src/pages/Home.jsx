@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import bannerImg from '../assets/img/ahmad-matar-t99iqJzb1Ns-unsplash.jpg';
 import {
   Award,
@@ -15,6 +16,8 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
+  const navigate = useNavigate();
+  
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -24,6 +27,25 @@ export default function Home() {
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
+
+  const handlePracticeAreaClick = (areaName) => {
+    const urlFriendlyName = areaName.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '');
+    navigate(`/practice-areas?area=${urlFriendlyName}`);
+  };
+
+  const practiceAreas = [
+    { name: 'Patents', icon: Award },
+    { name: 'Trademarks', icon: Copyright },
+    { name: 'Copyright', icon: Copyright },
+    { name: 'Design', icon: PenTool },
+    { name: 'Other IP', icon: Shield },
+    { name: 'Telecom & Broadcasting', icon: Radio },
+    { name: 'Compliance & Regulatory', icon: ClipboardList },
+    { name: 'Drug Regulatory', icon: FlaskConical },
+    { name: 'Arbitration', icon: Gavel },
+    { name: 'DRT', icon: Banknote },
+    { name: 'Competition', icon: BarChart3 }
+  ];
 
   return (
     <motion.div
@@ -49,54 +71,19 @@ export default function Home() {
       <motion.section {...fadeInUp} className="max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Practice Areas Preview</h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-700 dark:text-gray-300">
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Award className="text-blue-700 dark:text-blue-300" size={20} />
-            Patents
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Copyright className="text-blue-700 dark:text-blue-300" size={20} />
-            Trademarks
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Copyright className="text-blue-700 dark:text-blue-300" size={20} />
-            Copyright
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <PenTool className="text-blue-700 dark:text-blue-300" size={20} />
-            Design
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Shield className="text-blue-700 dark:text-blue-300" size={20} />
-            Other IP
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Radio className="text-blue-700 dark:text-blue-300" size={20} />
-            Telecom & Broadcasting
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <ClipboardList className="text-blue-700 dark:text-blue-300" size={20} />
-            Compliance & Regulatory
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <FlaskConical className="text-blue-700 dark:text-blue-300" size={20} />
-            Drug Regulatory
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Gavel className="text-blue-700 dark:text-blue-300" size={20} />
-            Arbitration
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Banknote className="text-blue-700 dark:text-blue-300" size={20} />
-            DRT / Competition
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <BarChart3 className="text-blue-700 dark:text-blue-300" size={20} />
-            Competition Law
-          </li>
-          <li className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3">
-            <Banknote className="text-blue-700 dark:text-blue-300" size={20} />
-            DRT Matters
-          </li>
+          {practiceAreas.map((area, index) => {
+            const IconComponent = area.icon;
+            return (
+              <li 
+                key={index}
+                className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex items-center gap-3 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 hover:shadow-md"
+                onClick={() => handlePracticeAreaClick(area.name)}
+              >
+                <IconComponent className="text-blue-700 dark:text-blue-300" size={20} />
+                {area.name}
+              </li>
+            );
+          })}
         </ul>
       </motion.section>
 

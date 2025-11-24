@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   ChevronDown,
   Award,
@@ -16,11 +17,8 @@ import {
 import practiceBg from '../assets/img/practice-bg.jpg';
 
 export default function PracticeAreas() {
+  const [searchParams] = useSearchParams();
   const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleSection = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   const areas = [
     {
@@ -91,6 +89,30 @@ export default function PracticeAreas() {
     }
   ];
 
+  // Check for URL parameter to open specific practice area
+  useEffect(() => {
+    const area = searchParams.get('area');
+    if (area) {
+      const areaIndex = areas.findIndex(item => 
+        item.title.toLowerCase().replace(/\s+/g, '-') === area
+      );
+      if (areaIndex !== -1) {
+        setOpenIndex(areaIndex);
+        // Scroll to the section after a short delay to ensure it's rendered
+        setTimeout(() => {
+          const element = document.getElementById(`area-${areaIndex}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 100);
+      }
+    }
+  }, [searchParams]);
+
+  const toggleSection = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <motion.div
       className="bg-white dark:bg-[#121212] transition-colors duration-300"
@@ -116,7 +138,7 @@ export default function PracticeAreas() {
         </p>
 
         {areas.map((area, index) => (
-          <motion.section key={index} className="border-b pb-4">
+          <motion.section key={index} id={`area-${index}`} className="border-b pb-4">
             <button
               onClick={() => toggleSection(index)}
               className="w-full flex justify-between items-center text-left py-3 focus:outline-none"
