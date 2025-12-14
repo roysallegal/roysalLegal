@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import bannerImg from '../assets/img/ahmad-matar-t99iqJzb1Ns-unsplash.jpg';
 import {
@@ -17,10 +17,30 @@ import {
 
 export default function Home() {
   const navigate = useNavigate();
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const quotes = [
+    "Protecting Innovation, Resolving Disputes – Expert Legal Services in IPR & Commercial Law",
+    "Your ideas. Our Protection.",
+    "Protecting Innovation. Empowering Growth.",
+    "Excellence in every brief. Strategy in every step. Judgment in every matter.",
+    "At the heart of innovation, advocacy, and regulation - where law becomes leadership.",
+    "Where law is not just practiced but perfected in service of innovation, resolution, and enduring value.",
+    "Where strategy meets structure. Where counsel becomes certainty.",
+    "Built on principle. Defined by clarity. Trusted in complexity."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [quotes.length]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -55,16 +75,37 @@ export default function Home() {
       exit="exit"
     >
       <motion.section {...fadeInUp} className="relative bg-cover bg-center h-96 flex items-center justify-center text-white text-center" style={{ backgroundImage: `url(${bannerImg})` }}>
-        <div className="bg-black bg-opacity-50 p-6 rounded-lg max-w-3xl">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">Protecting Innovation, Resolving Disputes – Expert Legal Services in IPR & Commercial Law</h1>
-          <p className="italic text-sm">“Your ideas. Our Protection.”</p>
+        <div className="max-w-6xl w-full mx-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* First div - existing content */}
+          <div className="bg-black bg-opacity-50 p-6 rounded-lg h-32 flex items-center">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">A leading full service Intellectual Property law firm.</h1>
+          </div>
+          
+          {/* Second div - rotating quotes */}
+          <div className="bg-black bg-opacity-50 p-6 rounded-lg relative h-32 overflow-hidden">
+            <motion.div
+              key={currentQuoteIndex}
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '-100%', opacity: 0 }}
+              transition={{ 
+                duration: 0.8,
+                ease: "easeOut"
+              }}
+              className="absolute inset-0 flex items-center justify-center p-6"
+            >
+              <p className="text-lg md:text-xl font-medium text-center italic">
+                "{quotes[currentQuoteIndex]}"
+              </p>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
       <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Brief Overview</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Overview</h2>
         <p className="text-gray-700 dark:text-gray-300 text-justify">
-          At Roy & Sal Associates, we provide sophisticated and strategic legal counsel with a core focus on intellectual property, while also delivering excellence across a wider spectrum of commercial and corporate law. Our team brings a depth of expertise in protecting and enforcing intellectual assets, spanning patents, trademarks, copyrights, design and trade secrets, paired with robust capabilities in contract law, technology law, regulatory advisory and commercial litigation. Be it advising startups, creative professionals, or established enterprises, we offer tailored, business-aligned legal solutions marked by precision, discretion, and a commitment to achieving measurable results. Our approach is proactive, responsive, and always aligned with our clients’ strategic goals.
+          At Roy & Sal Associates, we provide sophisticated and strategic legal counsel with a core focus on intellectual property, while also delivering excellence across a wider spectrum of commercial and corporate law. Our team brings a depth of expertise in protecting and enforcing intellectual assets, spanning patents, trademarks, copyrights, design and trade secrets, paired with robust capabilities in contract law, technology law, regulatory advisory and commercial litigation. Be it advising startups, creative professionals, or established enterprises, we offer tailored, business-aligned legal solutions marked by precision, discretion, and a commitment to achieving measurable results. Our approach is proactive, responsive, and always aligned with our clients' strategic goals.
         </p>
       </motion.section>
 
@@ -89,18 +130,18 @@ export default function Home() {
 
       {/* <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900">What Our Clients Say</h2>
-        <div className="text-gray-600 italic">“Coming soon...”</div>
+        <div className="text-gray-600 italic">"Coming soon..."</div>
       </motion.section> */}
 
       {/* <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Additional Quotes</h2>
         <ul className="space-y-2 text-sm italic text-gray-600">
-          <li>“Protecting Innovation. Empowering Growth.”</li>
-          <li>“Excellence in every brief. Strategy in every step. Judgment in every matter.”</li>
-          <li>“At the heart of innovation, advocacy, and regulation - where law becomes leadership.”</li>
-          <li>“Where law is not just practiced but perfected in service of innovation, resolution, and enduring value.”</li>
-          <li>“Where strategy meets structure. Where counsel becomes certainty.”</li>
-          <li>“Built on principle. Defined by clarity. Trusted in complexity.”</li>
+          <li>"Protecting Innovation. Empowering Growth."</li>
+          <li>"Excellence in every brief. Strategy in every step. Judgment in every matter."</li>
+          <li>"At the heart of innovation, advocacy, and regulation - where law becomes leadership."</li>
+          <li>"Where law is not just practiced but perfected in service of innovation, resolution, and enduring value."</li>
+          <li>"Where strategy meets structure. Where counsel becomes certainty."</li>
+          <li>"Built on principle. Defined by clarity. Trusted in complexity."</li>
         </ul>
       </motion.section> */}
     </motion.div>

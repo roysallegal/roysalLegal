@@ -15,7 +15,7 @@ function Navbar() {
   });
 
   const linkClasses = ({ isActive }) =>
-    `block px-4 py-2 text-base font-medium ${
+    `block px-4 py-2 text-lg font-medium ${
       isActive
         ? 'text-blue-700 bg-blue-100 rounded md:bg-transparent md:border-b-2 md:border-blue-700 dark:text-gray-300 dark:bg-blue-900/30 md:dark:bg-transparent md:dark:border-blue-300'
         : 'text-blue-900 hover:text-blue-700 hover:bg-blue-50 md:hover:bg-transparent dark:text-white dark:hover:text-blue-300 dark:hover:bg-gray-800'
@@ -39,12 +39,39 @@ function Navbar() {
   return (
     <nav className="bg-white dark:bg-[#121212] shadow-md py-4 px-6 flex justify-between items-center relative z-50">
       {/* Logo */}
-      <NavLink to="/" className="text-xl font-bold text-blue-900 dark:text-white font-serif">
+      <NavLink to="/" className="text-xl font-bold text-blue-900 dark:text-white font-serif pl-16">
         <img src={logo} alt="Roy Sal Legal Logo" className="h-12 w-auto" />
       </NavLink>
 
-      {/* Right section (toggle + menu) */}
+      {/* Centered Nav Links for desktop */}
+      <div className="hidden md:flex md:gap-4">
+        <NavLink to="/" className={linkClasses}>
+          Home
+        </NavLink>
+        <NavLink to="/about" className={linkClasses}>
+          About
+        </NavLink>
+        <NavLink to="/practice-areas" className={linkClasses}>
+          Practice Areas
+        </NavLink>
+        <NavLink to="/contact" className={linkClasses}>
+          Contact Us
+        </NavLink>
+      </div>
+
+      {/* Right section (reach us + mobile menu) */}
       <div className="flex items-center gap-4">
+        {/* Reach Us hover box - hidden on mobile */}
+        <div className="hidden md:block relative group">
+          <div className="bg-blue-900 dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg text-base font-medium cursor-pointer transition-all duration-300 group-hover:bg-blue-800 dark:group-hover:bg-gray-100 min-w-[140px] group-hover:min-w-[180px] group-hover:px-8 whitespace-nowrap text-center">
+            <span className="group-hover:opacity-0 transition-opacity duration-300">Reach Us</span>
+            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-base font-medium gap-2">
+              <PhoneIcon size={16} />
+              +91 91066 50461
+            </span>
+          </div>
+        </div>
+
         {/* Dark mode toggle */}
         {/* <button
           onClick={toggleDarkMode}
@@ -60,10 +87,10 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Nav Links */}
+      {/* Mobile Nav Links */}
       <div
-        className={`flex flex-col md:flex-row md:gap-4 absolute md:static top-16 left-0 w-full md:w-auto bg-white dark:bg-[#121212] text-blue-900 dark:text-white font-medium transition-all duration-300 ease-in-out z-50 ${
-          menuOpen ? 'block shadow-md' : 'hidden md:flex md:shadow-none'
+        className={`md:hidden flex flex-col absolute top-16 left-0 w-full bg-white dark:bg-[#121212] text-blue-900 dark:text-white font-medium transition-all duration-300 ease-in-out z-50 ${
+          menuOpen ? 'block shadow-md' : 'hidden'
         }`}
       >
         <NavLink to="/" className={linkClasses} onClick={() => setMenuOpen(false)}>
