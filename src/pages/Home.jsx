@@ -85,18 +85,43 @@ export default function Home() {
           <div className="p-6 rounded-lg relative h-32 overflow-hidden">
             <motion.div
               key={currentQuoteIndex}
-              initial={{ x: '100%', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: '-100%', opacity: 0 }}
+              initial={{ 
+                opacity: 0,
+                scale: 0.9,
+                filter: 'blur(15px)'
+              }}
+              animate={{ 
+                opacity: 1,
+                scale: 1,
+                filter: 'blur(0px)'
+              }}
+              exit={{ 
+                opacity: 0,
+                scale: 1.1,
+                filter: 'blur(15px)'
+              }}
               transition={{ 
                 duration: 0.8,
-                ease: "easeOut"
+                ease: [0.4, 0.0, 0.2, 1],
+                opacity: { duration: 0.6 },
+                scale: { duration: 0.8 },
+                filter: { duration: 0.7 }
               }}
               className="absolute inset-0 flex items-center justify-center p-6"
             >
-              <p className="text-xl md:text-2xl font-medium text-center italic">
+              <motion.p 
+                className="text-xl md:text-2xl font-medium text-center italic"
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: 0.1,
+                  ease: "easeOut"
+                }}
+              >
                 "{quotes[currentQuoteIndex]}"
-              </p>
+              </motion.p>
             </motion.div>
           </div>
         </div>
