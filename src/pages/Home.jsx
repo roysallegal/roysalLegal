@@ -75,14 +75,14 @@ export default function Home() {
       exit="exit"
     >
       <motion.section {...fadeInUp} className="relative bg-cover bg-center h-96 flex items-center justify-center text-white text-center" style={{ backgroundImage: `url(${bannerImg})` }}>
-        <div className="max-w-6xl w-full mx-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl w-full mx-4 grid grid-cols-1 gap-8 items-center">
           {/* First div - existing content */}
-          <div className="bg-black bg-opacity-50 p-6 rounded-lg h-32 flex items-center">
-            <h1 className="text-2xl md:text-3xl font-bold mb-2">A leading full service Intellectual Property law firm.</h1>
+          <div className="p-6 rounded-lg h-32 flex items-center">
+            <h1 className="text-3xl md:text-5xl font-bold mb-2">A leading full service Intellectual Property law firm.</h1>
           </div>
           
           {/* Second div - rotating quotes */}
-          <div className="bg-black bg-opacity-50 p-6 rounded-lg relative h-32 overflow-hidden">
+          <div className="p-6 rounded-lg relative h-32 overflow-hidden">
             <motion.div
               key={currentQuoteIndex}
               initial={{ x: '100%', opacity: 0 }}

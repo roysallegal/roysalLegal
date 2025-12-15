@@ -15,7 +15,7 @@ function Navbar() {
   });
 
   const linkClasses = ({ isActive }) =>
-    `block px-4 py-2 text-lg font-medium ${
+    `block px-4 py-2 text-xl font-medium ${
       isActive
         ? 'text-blue-700 bg-blue-100 rounded md:bg-transparent md:border-b-2 md:border-blue-700 dark:text-gray-300 dark:bg-blue-900/30 md:dark:bg-transparent md:dark:border-blue-300'
         : 'text-blue-900 hover:text-blue-700 hover:bg-blue-50 md:hover:bg-transparent dark:text-white dark:hover:text-blue-300 dark:hover:bg-gray-800'
@@ -40,7 +40,7 @@ function Navbar() {
     <nav className="bg-white dark:bg-[#121212] shadow-md py-4 px-6 flex justify-between items-center relative z-50">
       {/* Logo */}
       <NavLink to="/" className="text-xl font-bold text-blue-900 dark:text-white font-serif pl-16">
-        <img src={logo} alt="Roy Sal Legal Logo" className="h-12 w-auto" />
+        <img src={logo} alt="Roy Sal Legal Logo" className="h-16 w-auto" />
       </NavLink>
 
       {/* Centered Nav Links for desktop */}
@@ -63,10 +63,10 @@ function Navbar() {
       <div className="flex items-center gap-4">
         {/* Reach Us hover box - hidden on mobile */}
         <div className="hidden md:block relative group">
-          <div className="bg-blue-900 dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg text-base font-medium cursor-pointer transition-all duration-300 group-hover:bg-blue-800 dark:group-hover:bg-gray-100 min-w-[140px] group-hover:min-w-[180px] group-hover:px-8 whitespace-nowrap text-center">
-            <span className="group-hover:opacity-0 transition-opacity duration-300">Reach Us</span>
-            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-base font-medium gap-2">
-              <PhoneIcon size={16} />
+          <div className="bg-blue-900 dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg text-xl font-medium cursor-pointer transition-all duration-300 group-hover:bg-blue-800 dark:group-hover:bg-gray-100 min-w-[160px] group-hover:min-w-[210px] group-hover:px-8 whitespace-nowrap text-center">
+            <span className="group-hover:opacity-0 transition-opacity duration-300">Get in Touch</span>
+            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xl font-medium gap-2">
+              <PhoneIcon size={18} />
               +91 91066 50461
             </span>
           </div>
