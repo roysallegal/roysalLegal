@@ -69,7 +69,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="px-4 py-12 space-y-12"
+      className="pb-12 space-y-12"
       initial="initial"
       animate="animate"
       exit="exit"
@@ -102,14 +102,14 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto">
+      <motion.section {...fadeInUp} className="text-center max-w-4xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Overview</h2>
         <p className="text-gray-700 dark:text-gray-300 text-justify">
           At Roy & Sal Associates, we provide sophisticated and strategic legal counsel with a core focus on intellectual property, while also delivering excellence across a wider spectrum of commercial and corporate law. Our team brings a depth of expertise in protecting and enforcing intellectual assets, spanning patents, trademarks, copyrights, design and trade secrets, paired with robust capabilities in contract law, technology law, regulatory advisory and commercial litigation. Be it advising startups, creative professionals, or established enterprises, we offer tailored, business-aligned legal solutions marked by precision, discretion, and a commitment to achieving measurable results. Our approach is proactive, responsive, and always aligned with our clients' strategic goals.
         </p>
       </motion.section>
 
-      <motion.section {...fadeInUp} className="max-w-4xl mx-auto">
+      <motion.section {...fadeInUp} className="max-w-4xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-4 text-blue-900 dark:text-white">Practice Areas Preview</h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-700 dark:text-gray-300">
           {practiceAreas.map((area, index) => {
